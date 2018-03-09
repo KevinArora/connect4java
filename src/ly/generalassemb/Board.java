@@ -1,14 +1,26 @@
 package ly.generalassemb;
-import java.util.*;
-//import java.util.Scanner;
 
+import java.util.Scanner;
 
-public class Main {
-static int location = 0;
+public class Board {
+    static int[][] board = new int[6][6];
+//    int[] row1 = {0, 0, 0, 0, 0, 0};
+//    int[] row2 = {0, 0, 0, 0, 0, 0};
+//    int[] row3 = {0, 0, 0, 0, 0, 0};
+//    int[] row4 = {0, 0, 0, 0, 0, 0};
+//    int[] row5 = {0, 0, 0, 0, 0, 0};
+//    int[] row6 = {0, 0, 0, 0, 0, 0};
+
+//    int[][] board = {row1, row2, row3, row4, row5, row6};
+
+    public int getValue(int x, int y) {
+        return board[x][y];
+    }
+
     public static void main(String[] args) {
         int player = 1;
         boolean win = false;
-        int[][] board = new int[6][6];
+
 
         for (int r = 0; r<board.length;r++) {
             for (int c = 0; c < board.length; c++) {
@@ -43,16 +55,14 @@ static int location = 0;
         for (int r = board.length-1;r >=0;r--){
             if(board[r][column]==0){
 //                System.out.println("if happening");
-            if(token%2==1) {
-                board[r][column] = 1;
-                location = r;
-                return;
-            }
-            else {
-                board[r][column] = 2;
-                location = r;
-                return;
-            }
+                if(token%2==1) {
+                    board[r][column] = 1;
+                    return;
+                }
+                else {
+                    board[r][column] = 2;
+                    return;
+                }
             }
         }
 
@@ -115,7 +125,4 @@ static int location = 0;
 
 
     }
-    }
-
-
-
+}
